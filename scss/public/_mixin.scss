@@ -1,0 +1,80 @@
+%clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+%box-sizing {
+  &::after {
+    box-sizing: border-box;
+  }
+}
+%heading {
+  font-family: Roboto;
+  font-size: $base-fontSize * 2;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: $fontSize;
+  }
+}
+
+%heading-underline {
+  width: $base-fontSize * 4;
+  height: $base-fontSize/4;
+  background-color: darken($bg-color, 20%);
+  margin: 0 auto 50px;
+}
+%offset {
+  &::before {
+    content: "";
+    height: 5rem;
+    margin-top: -5rem;
+    display: block;
+  }
+  @media screen and (max-width: 768px) {
+    &::before {
+      content: "";
+      height: 3.7rem;
+      margin-top: -3.7rem;
+      display: block;
+    }
+  }
+}
+
+@mixin d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.d-flex {
+  @include d-flex();
+}
+
+@mixin filter-gray {
+  filter: grayscale(1);
+}
+
+.filter-gray {
+  @include filter-gray();
+}
+@mixin filter-blur {
+  filter: blur(3px);
+}
+
+.filter-blur {
+  @include filter-blur();
+}
+
+@mixin d-float {
+  float: left;
+}
+.d-float {
+  @include d-float();
+}
+
+

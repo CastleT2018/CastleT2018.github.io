@@ -1,0 +1,323 @@
+section {
+  display: block;
+  h3.heading {
+    @extend %heading;
+  }
+  .heading-underline {
+    @extend %heading-underline;
+  }
+  .container {
+    padding: 80px 160px;
+    @media screen and (max-width: 768px) {
+      padding: 50px 100px;
+    }
+    @media screen and (max-width: 576px) {
+      padding: 20px 50px;
+    }
+  }
+  .row {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    // padding: 0 auto;
+    margin: 0 auto;
+    // width: 1140px;
+  }
+}
+
+#about {
+  @extend %offset, %box-sizing;
+}
+#skill {
+  @extend %offset, %box-sizing;
+}
+#portfolio {
+  @extend %offset, %box-sizing, %clearfix;
+}
+#contact {
+  @extend %offset, %box-sizing;
+}
+.skew {
+  top: 0;
+  left: 0;
+  clip-path: polygon(100% 0, 100% 90%, 50% 100%, 0 90%, 0 0);
+  background: linear-gradient(180deg, rgba(#2690d4, 0.5), darken(#2690d4, 15%));
+}
+
+// section-a --about-me
+#section-about {
+  position: relative;
+  .about-text {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    text-indent: 30px;
+    font-size: $fontSize;
+    color: $font-color;
+    line-height: $base-fontSize * 3;
+    @media screen and (max-width: 768px) {
+      font-size: $base-fontSize;
+      line-height: $base-fontSize * 2;
+    }
+  }
+  h4 {
+    margin: 0 auto;
+    width: 100px;
+    height: 50px;
+    border: 2px solid #fff;
+    @media screen and (max-width: 768px) {
+      width: 80px;
+      height: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  a {
+    display: inline-block;
+    line-height: 50px;
+    font-size: $fontSize;
+    color: $font-color;
+    @media screen and (max-width: 768px) {
+      font-size: $base-fontSize;
+      line-height: 30px;
+    }
+  }
+}
+
+// section-skill
+#section-skill {
+  .content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .box {
+    width: 25%;
+    float: left;
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+    @media screen and (max-width: 576px) {
+      width: 100%;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  h4 {
+    text-align: center;
+    color: $font-color;
+    text-transform: uppercase;
+  }
+  .chart {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    font-size: $base-fontSize * 2;
+    line-height: 130px;
+    color: $font-color;
+  }
+  .Skill-items {
+    position: relative;
+    margin: 0 auto;
+    width: 50%;
+    padding: 0 30px;
+  }
+  .row {
+    &.d-flex {
+      @media screen and (max-width: 576px) {
+        display: block;
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+  .SkillsBox {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    h3 {
+      margin: 0 0 20px;
+      color: $font-color;
+      padding: 0;
+      text-transform: uppercase;
+    }
+    .skills {
+      width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      h4 {
+        color: $font-color;
+        font-size: 18px;
+        padding: 0;
+        margin: 15px 0 0;
+        text-transform: capitalize;
+      }
+    }
+    .progress {
+      width: 100%;
+      border-radius: 10px;
+      height: 20px;
+      border: 2px solid $bg-color;
+      text-align: center;
+      line-height: 22px;
+      overflow: hidden;
+      .percent {
+        text-align: right;
+        color: $font-color;
+        padding-right: 10px;
+        border-right: 2px solid $bg-color;
+        animation: ani 0.5s linear infinite;
+        background: linear-gradient(
+          45deg,
+          rgba($bg-color, 0.25) 25%,
+          transparent 25%,
+          transparent 50%,
+          rgba($bg-color, 0.25) 50%,
+          rgba($bg-color, 0.25) 75%,
+          transparent 75%,
+          transparent
+        );
+        background-size: 30px 30px;
+      }
+    }
+  }
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 30px 0;
+  }
+}
+
+// section-portfolio
+#section-portfolio {
+  position: relative;
+  background-image: url(/images/bg-2.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+  transition: 1s;
+  &:hover {
+    background-blend-mode: darken;
+    background-color: rgba($header-color, 0.5);
+  }
+
+  .col-portfolio {
+    // display: block;
+    width: 50%;
+    padding: 0 50px;
+    filter: blur(1px) grayscale(1);
+    transition: 0.5s;
+    &:hover {
+      filter: brightness(1.2);
+      transform: scale(1.2);
+    }
+    a {
+      display: block;
+      box-shadow: 0 5px 5px rgba(#000, 0.5);
+    }
+    h3 {
+      font-size: $base-fontSize;
+      color: #fff;
+      text-shadow: 0 2px 2px rgba(#000, 0.5);
+      @media screen and (max-width: 576px) {
+        font-size: $fontSize;
+      }
+    }
+    @media screen and (max-width: 576px) {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+  .row {
+    &.d-flex {
+      @media screen and (max-width: 576px) {
+        display: block;
+        position: relative;
+        padding: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// contact-me
+#section-contact {
+  .contact-card {
+    text-align: center;
+    // margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 3px 3px rgba(#000, 0.5);
+    .img {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 3px solid rgba(#fff, 0.5);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+      img {
+        width: 100%;
+      }
+    }
+    .contact-item {
+      text-align: center;
+      h3 {
+        font-size: $base-fontSize;
+        color: $font-color;
+        text-shadow: 0 2px 2px rgba(#000, 0.5);
+      }
+    }
+    .contact-icon {
+      position: relative;
+      margin: 0 auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      a {
+        color: $bg-color;
+        &:hover {
+          .fa {
+            transform: rotateY(360deg);
+            color: darken($bg-color, 30%);
+          }
+        }
+      }
+      .fa {
+        transition: 0.5s;
+        font-size: $base-fontSize * 2;
+      }
+    }
+    .contact-text {
+      
+      p {
+        font-size: $base-fontSize;
+        color: $font-color;
+      }
+      i {
+        padding-right: 10px;
+      }
+      .fa {
+        font-size: $fontSize;
+        color: $bg-color;
+      }
+    }
+  }
+}

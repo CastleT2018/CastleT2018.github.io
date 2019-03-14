@@ -1,0 +1,39 @@
+
+@function font($level: 0) {
+  @if $level < 0 {
+    $level: 0;
+  }
+  @return $baseSize + $sizeLevel * round($level);
+  // 12px + 4px * 1 {round四蛇五路} = 16px
+}
+
+@function rhythm($size) {
+  @return ceil($size * $paddingLevel / $baseLineSize) * $baseLineSize;
+  // ceil( 16px{$size} * 1.2 / 10px ) * 10px =19.2 {ceil無條件進位} =20px
+}
+
+// @mixin font($level: 1, $line-height: auto) {
+//   $size: font($level);// 16px ---前面
+//   $line: rhythm($size);// 20px --前面
+
+//   font-size: $size;
+//   @if $line-height == auto or $line-height < $line {
+//     line-height: $line;
+//   } @else {
+//     line-height: $line-height;
+//   }
+// }
+
+// @function line($count: 1, $baseLineHeight: 10px) {
+//   @return $baseLineHeight * $count;
+// }
+
+// @for $i from 0 through 5{
+//   .level#{$i}{
+//     @include font($i);
+//     margin: line($i/2) auto;
+//   }
+// }
+
+
+

@@ -1,0 +1,126 @@
+.banner {
+  .text-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+  h2 {
+    width: 100%;
+    font-size: $fontSize * 3;
+    text-transform: uppercase;
+    text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.9);
+    color: #fff;
+    @media screen and (max-width: 768px) {
+      font-size: $fontSize * 2;
+    }
+  }
+  .text {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media screen and (max-width: 768px) {
+        margin-top: 10px;
+      }
+    span {
+      color: #fff;
+      width: 100%;
+      font-size: $base-fontSize * 2;
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+      text-transform: uppercase;
+      animation: text 1.8s linear infinite;
+      line-height: $base-fontSize ;
+      @media screen and (max-width: 768px) {
+        font-size: $base-fontSize;
+      }
+    }
+    span:nth-child(1) {
+      animation-delay: 0;
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    span:nth-child(2) {
+      animation-delay: 0.3s;
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    span:nth-child(4) {
+      animation-delay: 0.9s;
+    }
+  }
+  .center {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .down {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    border: 4px solid #fff;
+    border-radius: 20px;
+    background: transparent;
+    overflow: hidden;
+    @media screen and (max-width: 768px) {
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      left: 50%;
+      top: 5px;
+      transform: translate(-50%, 0);
+      animation: animate 1s linear infinite;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 6px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    left: 50%;
+    top: 5px;
+    transform: translate(-50%, 0);
+    border-radius: 3px;
+  }
+}
+@keyframes animate {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  70% {
+    transform: translate(-50%, 30px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 60px);
+    opacity: 0;
+  }
+}
+
+@keyframes text {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
